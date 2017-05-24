@@ -1,3 +1,11 @@
+### ~/.railsrc :
+# -d postgresql #defaults my development database to PostgreSQL instead of SQLite3
+# -T
+# -m ~/Projects/rails-template.rb
+# --skip-turbolinks
+# --skip-spring
+### end ~/.railsrc
+
 # Make directories relative for editing and creating files
 def source_paths
   [File.expand_path(File.dirname(__FILE__))]
