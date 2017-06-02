@@ -1,0 +1,15 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Exclude:
+    - 'db/**/*'
+    - 'spec/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'

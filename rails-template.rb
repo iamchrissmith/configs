@@ -1,7 +1,7 @@
 ### ~/.railsrc :
 # -d postgresql #defaults my development database to PostgreSQL instead of SQLite3
 # -T
-# -m ~/Projects/rails-template.rb
+# -m ~/Projects/configs/rails-template.rb
 # --skip-turbolinks
 # --skip-spring
 ### end ~/.railsrc
@@ -23,8 +23,11 @@ gem_group :development, :test do
   gem 'shoulda-matchers'
   gem "factory_girl_rails", "~> 4.0"
   gem 'pry-rails'
+  gem 'pry-state'
+  gem 'pry-byebug'
   gem 'database_cleaner'
   gem 'erb2haml'
+  gem 'rubocop'
 end
 
 # Bundle and generate rspec
@@ -33,6 +36,9 @@ generate 'rspec:install'
 # convert erbs to Haml
 run 'rake haml:replace_erbs'
 
+# setup rubocop config
+run 'cp ~/Projects/configs/.rubocop.yml ./'
+run 'cat "--require rails_helper" >> .rspec'
 # configure testing gems
 after_bundle do
 insert_into_file 'spec/rails_helper.rb', after: "require 'rspec/rails'\n" do <<-RUBY
